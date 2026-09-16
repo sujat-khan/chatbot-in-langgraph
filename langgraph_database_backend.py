@@ -6,10 +6,14 @@ from langgraph.checkpoint.sqlite import SqliteSaver
 from langgraph.graph.message import add_messages
 from dotenv import load_dotenv
 import sqlite3
+from langchain_groq import ChatGroq
 
 load_dotenv()
 
-llm = ChatOpenAI()
+llm = ChatGroq(
+    model="openai/gpt-oss-120b",
+    temperature=0.1
+)
 
 class ChatState(TypedDict):
     messages: Annotated[list[BaseMessage], add_messages]
@@ -20,8 +24,10 @@ def chat_node(state: ChatState):
     return {"messages": [response]}
 
 conn = sqlite3.connect(database='chatbot.db', check_same_thread=False)
+
 # Checkpointer
 checkpointer = SqliteSaver(conn=conn)
+
 
 graph = StateGraph(ChatState)
 graph.add_node("chat_node", chat_node)

@@ -5,10 +5,14 @@ from langchain_openai import ChatOpenAI
 from langgraph.checkpoint.memory import InMemorySaver
 from langgraph.graph.message import add_messages
 from dotenv import load_dotenv
+from langchain_groq import ChatGroq
 
 load_dotenv()
 
-llm = ChatOpenAI()
+llm = ChatGroq(
+    model="openai/gpt-oss-120b",
+    temperature=0.1
+)
 
 class ChatState(TypedDict):
     messages: Annotated[list[BaseMessage], add_messages]

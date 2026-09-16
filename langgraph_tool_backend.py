@@ -12,13 +12,18 @@ from langchain_core.tools import tool
 from dotenv import load_dotenv
 import sqlite3
 import requests
+from langchain_groq import ChatGroq
+
 
 load_dotenv()
 
 # -------------------
 # 1. LLM
 # -------------------
-llm = ChatOpenAI()
+llm = ChatGroq(
+    model="openai/gpt-oss-120b",
+    temperature=0.1
+)
 
 # -------------------
 # 2. Tools

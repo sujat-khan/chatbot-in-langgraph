@@ -1,0 +1,68 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Virtual Environments
+myvenv/
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Environment Variables & Secrets
+.env
+.env.*
+*.env
+!.env.example
+.streamlit/secrets.toml
+
+# SQLite & Databases (including WAL, SHM, journal, and checkpoint files)
+*.db
+*.db-*
+chatbot.db*
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+*.db3
+*.s3db
+*.sl3
+*.checkpoint.bin
+
+# Vector Stores & Embeddings Cache
+*.faiss
+faiss_index/
+
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE & Editor Settings
+.idea/
+.vscode/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+
+# Distribution / Packaging
+dist/
+build/
+*.egg-info/
+.eggs/
+
+# Logs and temporary files
+*.log
+tmp/
+temp/
