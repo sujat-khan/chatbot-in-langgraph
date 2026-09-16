@@ -10,15 +10,26 @@ from langchain_core.tools import tool
 import asyncio
 from langchain_mcp_adapters.client import MultiServerMCPClient
 
-load_dotenv()  # Load environment variables from .env file
+from langchain_groq import ChatGroq
 
-llm = ChatOpenAI(model="gpt-5")
+
+load_dotenv()
+
+# -------------------
+# 1. LLM
+# -------------------
+llm = ChatGroq(
+    model="openai/gpt-oss-120b",
+    temperature=0.1
+)
+
+#llm = ChatOpenAI(model="gpt-5")
 
 # MCP client for local FastMCP server
 client = MultiServerMCPClient(
     {
         "arith": {
-            "transport": "stdio",
+            "transport": "stdio",#local
             "command": "python3",          
             "args": ["/Users/nitish/Desktop/mcp-math-server/main.py"],
         },

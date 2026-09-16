@@ -22,3 +22,6 @@ aiosqlite
 
 # Configuration & Utilities
 python-dotenv
+
+#MCP
+langchain_mcp_adapters

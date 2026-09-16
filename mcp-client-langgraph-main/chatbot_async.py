@@ -9,9 +9,20 @@ from langgraph.prebuilt import ToolNode, tools_condition
 from langchain_core.tools import tool
 import asyncio
 
-load_dotenv()  # Load environment variables from .env file
+from langchain_groq import ChatGroq
 
-llm = ChatOpenAI(model="gpt-5")
+
+load_dotenv()
+
+# -------------------
+# 1. LLM
+# -------------------
+llm = ChatGroq(
+    model="openai/gpt-oss-120b",
+    temperature=0.1
+)
+
+#llm = ChatOpenAI(model="gpt-5")
 
 @tool
 def calculator(first_num: float, second_num: float, operation: str) -> dict:
