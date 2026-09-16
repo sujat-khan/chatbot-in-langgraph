@@ -10,6 +10,7 @@ langchain-community
 langchain-openai
 langchain-mcp-adapters
 langchain_groq
+langchain-text-splitters
 
 # Vector Store, Embeddings & RAG
 faiss-cpu
