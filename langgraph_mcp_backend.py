@@ -43,7 +43,7 @@ llm = ChatOpenAI()
 # -------------------
 # 2. Tools
 # -------------------
-search_tool = DuckDuckGoSearchRun(region="us-en")
+search_tool = DuckDuckGoSearchRun(region="in-en")
 
 
 @tool
